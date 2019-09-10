@@ -5,26 +5,6 @@ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
 AM_PATH_PYTHON
 
-AC_ARG_WITH(textlcd,
-	AC_HELP_STRING([--with-textlcd], [use ascii based lcd, yes or no]),
-	[[withtextlcd=$withval]],
-	[[withtextlcd=no]]
-)
-if test x"$withtextlcd" != xno ; then
-	AC_DEFINE(HAVE_TEXTLCD, 1,[Define when using an ascii based lcd device])
-fi
-AM_CONDITIONAL(HAVE_TEXTLCD, test x"$withtextlcd" != xno)
-
-AC_ARG_WITH(colorlcd,
-	AC_HELP_STRING([--with-colorlcd], [use 96x64 16bpp color display, yes or no]),
-	[[withcolorlcd=$withval]],
-	[[withcolorlcd=no]]
-)
-if test x"$withcolorlcd" != xno ; then
-	AC_DEFINE(HAVE_COLORLCD, 1,[Define when using a 96x64 color display device])
-fi
-AM_CONDITIONAL(HAVE_COLORLCD, test x"$withcolorlcd" != xno)
-
 AC_ARG_WITH(bwlcd96,
 	AC_HELP_STRING([--with-bwlcd96], [use 96x64 1bpp black and white display, yes or no]),
 	[[withbwlcd96=$withval]],
@@ -55,16 +35,6 @@ if test x"$withbwlcd140" != xno ; then
 fi
 AM_CONDITIONAL(HAVE_BWLCD140, test x"$withbwlcd140" != xno)
 
-AC_ARG_WITH(colorlcd220,
-	AC_HELP_STRING([--with-colorlcd220], [use 220x176 16bpp color display, yes or no]),
-	[[withcolorlcd220=$withval]],
-	[[withcolorlcd220=no]]
-)
-if test x"$withcolorlcd220" != xno ; then
-	AC_DEFINE(HAVE_COLORLCD220, 1,[Define when using a 220x176 color display device])
-fi
-AM_CONDITIONAL(HAVE_COLORLCD220, test x"$withcolorlcd220" != xno)
-
 AC_ARG_WITH(bwlcd255,
 	AC_HELP_STRING([--with-bwlcd255], [use 255x64 1bpp black and white display, yes or no]),
 	[[withbwlcd255=$withval]],
@@ -74,6 +44,16 @@ if test x"$withbwlcd255" != xno ; then
 	AC_DEFINE(HAVE_BWLCD255, 1,[Define when using a 255x64 black and white display device])
 fi
 AM_CONDITIONAL(HAVE_BWLCD255, test x"$withbwlcd255" != xno)
+
+AC_ARG_WITH(colorlcd220,
+	AC_HELP_STRING([--with-colorlcd220], [use 220x176 16bpp color display, yes or no]),
+	[[withcolorlcd220=$withval]],
+	[[withcolorlcd220=no]]
+)
+if test x"$withcolorlcd220" != xno ; then
+	AC_DEFINE(HAVE_COLORLCD220, 1,[Define when using a 220x176 color display device])
+fi
+AM_CONDITIONAL(HAVE_COLORLCD220, test x"$withcolorlcd220" != xno)
 
 AC_ARG_WITH(colorlcd390,
 	AC_HELP_STRING([--with-colorlcd390], [use 390x240 16bpp color display, yes or no]),
